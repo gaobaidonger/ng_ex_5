@@ -1,0 +1,18 @@
+{
+  "diagnostic_context": {
+    "problem": "I changed my university password this morning.\nNow my Windows laptop won't connect to campus Wi-Fi,\nbut my phone still works.",
+    "device": "Windows laptop",
+    "wifi_status": "operational",
+    "selected_files": [
+      "knowledge/wifi_setup.txt",
+      "knowledge/password_changes.txt",
+      "knowledge/service_status.txt"
+    ],
+    "compressed_context": "**Relevant Information for the Student's Question:**\n\n1. **Windows Laptop Issue:**  \n   - If you recently changed your university password, Windows may still have the old password cached.  \n   - **Action:** Go to **Settings > Network & Internet > Wi-Fi**, select **eduroam**, and choose **\"Forget\"** for the existing network. Then reconnect using your **new password**.  \n\n2. **Cached Credentials:**  \n   - Services like Wi-Fi may retain old credentials after a password change.  \n   - If one device (e.g., phone) works but another (e.g., laptop) does not, the failing device may still be using cached old credentials.  \n\n3. **General Troubleshooting:**  \n   - Verify that your **username and password are current**.  \n   - Ensure **Wi-Fi is enabled** on the laptop.  \n\n4. **Service Status:**  \n   - **eduroam campus Wi-Fi** is currently operational (no university-wide outage reported).  \n\n**Conclusion:** The laptop likely failed to connect due to cached old credentials. Forgetting the network and reconnecting with the new password should resolve the issue.",
+    "result": "{\n    \"likely_cause\": \"Cached old credentials on the Windows laptop after the password change.\",\n    \"evidence\": [\n        \"Phone connects successfully to campus Wi-Fi but laptop does not\",\n        \"eduroam service status is operational (no campus-wide outage)\"\n    ],\n    \"steps\": [\n        \"Go to Settings > Network & Internet > Wi-Fi, select 'eduroam', and choose 'Forget' for the existing network\",\n        \"Restart your laptop to clear any remaining cached authentication data\",\n        \"Reconnect to campus Wi-Fi and enter your new password when prompted\"\n    ],\n    \"escalation\": \"If the issue persists after these steps, contact the university IT helpdesk for further assistance with credential synchronization.\"\n}"
+  },
+  "report_context": {
+    "exercise": "WSCI Framework",
+    "status": "completed"
+  }
+}

@@ -1,7 +1,6 @@
 from pathlib import Path
 from ollama import chat
 
-
 question = """
 I changed my university password this morning.
 Now my Windows laptop won't connect to campus Wi-Fi,
@@ -9,22 +8,38 @@ but my phone still works.
 """
 
 selected_files = [
-    ##Use only the files that are relevant to the question.
-
+    "knowledge/password_changes.txt",
+    "knowledge/service_status.txt",
+    "knowledge/wifi_setup.txt"
 ]
-
 
 context = ""
 
-## Write a for loop to go through all the files in selected_files and read their contents into the context variable.
+for file in selected_files:
+    context += Path(file).read_text()
+    context += "\n\n"
 
+response = chat(
+    model="qwen3:8b",
+    messages=[
+        {
+            "role": "user",
+            "content": f"""
+Use the following university IT support knowledge to answer the student's question.
 
-## Call Qwen with the student's question and the context you created above.
+Context:
+{context}
 
-
+Question:
+{question}
+"""
+        }
+    ]
+)
 
 print(
     "Context characters:",
     len(context)
 )
+
 print(response.message.content)
